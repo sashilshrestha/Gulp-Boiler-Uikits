@@ -1,0 +1,143 @@
+.ss-landing-section {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+    position: inherit;
+    top: -#{toRem(100)}rem;
+
+    .ss-info-container {
+        @include width(1125);
+        @include height(452);
+        background-color: $blueBg;
+
+        @include mQ(992) {
+            height: auto;
+        }
+
+        h1 {
+            color: $white;
+            @include fSize(40);
+            @include padding(90, 125, 0, 125);
+            @include lineHt(60);
+            position: relative;
+
+            @include mQ(992) {
+                padding: 3rem 2.5rem 3.5rem;
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                @include width(102);
+                height: 1px;
+                background-color: $lineBg;
+                bottom: #{toRem(26)}rem;
+                left: 33rem;
+
+                @include mQ(992) {
+                    left: 2.5rem;
+                }
+            }
+
+            &:after {
+                content: attr(data-category);
+                position: absolute;
+                bottom: 0;
+                @include fSize(20);
+                letter-spacing: 5px;
+                font-weight: 400;
+                text-transform: uppercase;
+                left: 41.375rem;
+                color: $lineBg;
+
+                @include mQ(992) {
+                    left: #{toRem(160)}rem;
+                }
+            }
+        }
+        p {
+            color: $white;
+            @include fSize(20);
+            @include padding(37, 295, 0, 125);
+            @include lineHt(30);
+
+            @include mQ(992) {
+                padding: 2rem 2.5rem 3rem;
+                margin-top: 0;
+            }
+        }
+    }
+
+    .ss-down-button {
+        @include width(128);
+        @include height(307);
+        background-color: $purpleBg;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+
+        .ss-arrow-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // height: inherit;
+            height: fit-content;
+            flex-direction: column-reverse;
+            position: relative;
+            bottom: #{toRem(35)}rem;
+            cursor: pointer;
+
+            .ss-arrow-1 {
+                @include width(48);
+                @include height(30.6);
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+            .ss-arrow-2 {
+                @include width(48);
+                @include height(30.6);
+                background-size: contain;
+                background-repeat: no-repeat;
+                position: relative;
+                top: #{toRem(15)}rem;
+            }
+            .ss-arrow-3 {
+                @include width(48);
+                @include height(30.6);
+                background-size: contain;
+                background-repeat: no-repeat;
+                position: relative;
+                top: #{toRem(30)}rem;
+            }
+            .ss-arrow-4 {
+                @include width(48);
+                @include height(30.6);
+                background-size: contain;
+                background-repeat: no-repeat;
+                position: relative;
+                top: #{toRem(45)}rem;
+            }
+            .ss-arrow-5 {
+                @include width(48);
+                @include height(30.6);
+                background-size: contain;
+                background-repeat: no-repeat;
+                position: relative;
+                top: #{toRem(60)}rem;
+                animation: animate 1.3s linear;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes animate {
+                0% {
+                    top: #{toRem(55)}rem;
+                }
+                100% {
+                    top: #{toRem(140)}rem;
+                }
+            }
+        }
+    }
+}

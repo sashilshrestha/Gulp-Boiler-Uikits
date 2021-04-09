@@ -1,0 +1,70 @@
+/*Convertion Ration sp to rem for html */
+$conversionRatioSpToRemWeb: 1/16; //! 0.0625;
+$conversionRatioRemToPxWeb: 16;
+
+// Scales
+@function spToRem($sps) {
+    @return $sps * $conversionRatioSpToRemWeb;
+}
+
+@function remToPx($rems) {
+    @return $rems * $conversionRatioRemToPxWeb;
+}
+
+@function spacing($tracking, $px) {
+    @return $tracking / $px;
+}
+
+@mixin mat-typo($size, $spacing, $lineheight) {
+    font-size: #{spToRem($size)}rem;
+    letter-spacing: #{spacing($spacing, remToPx($size))}px;
+    line-height: $lineheight;
+}
+
+@function toRem($size) {
+    @return $size * $conversionRatioSpToRemWeb;
+}
+
+@mixin fSize($size) {
+    font-size: #{toRem($size)}rem;
+}
+
+@mixin lineHt($size) {
+    line-height: #{toRem($size)}rem;
+}
+
+@mixin width($size) {
+    width: #{toRem($size)}rem;
+}
+
+@mixin height($size) {
+    height: #{toRem($size)}rem;
+}
+
+@mixin margin($m1, $m2, $m3, $m4) {
+    margin: #{toRem($m1)}rem #{toRem($m2)}rem #{toRem($m3)}rem #{toRem($m4)}rem;
+}
+
+@mixin padding($p1, $p2, $p3, $p4) {
+    padding: #{toRem($p1)}rem #{toRem($p2)}rem #{toRem($p3)}rem #{toRem($p4)}rem;
+}
+
+// Weights
+$w-thin: 100;
+$w-light: 300;
+$w-regular: 400;
+$w-medium: 500;
+$w-semibold: 600;
+$w-bold: 700;
+$w-black: 900;
+
+.inter-light {
+    font-family: 'Inter Light';
+    @include mat-typo(67, 131, 1.2);
+}
+
+@mixin mQ($arg) {
+    @media screen and (max-width: #{$arg}px) {
+        @content;
+    }
+}
